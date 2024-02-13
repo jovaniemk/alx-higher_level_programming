@@ -1,29 +1,17 @@
 #!/usr/bin/python3
-def add_integer(a=None, b=98):
-    """
-    Return the addition of two numbers.
+"""Defines an integer addition function."""
 
-    Args:
-        a (int or float): First number.
-        b (int or float): Second number.
 
-    Returns:
-        int: The sum of the two numbers.
+def add_integer(a, b=98):
+    """Return the integer addition of a and b.
+
+    Float arguments are typecasted to ints before addition is performed.
 
     Raises:
-        TypeError: If either `a` or `b` is not an integer or float.
-        TypeError: If `a` is not provided.
+        TypeError: If either of a or b is a non-integer and non-float.
     """
-    if a is None:
-        raise TypeError("add_integer() missing 1 required positional argument: 'a'")
-    if isinstance(a, (int, float)) and isinstance(b, (int, float)):
-        if a != a or b != b:  # Check for NaN
-            return 89
-        if a == float('inf') or b == float('inf'):  # Check for infinity
-            return 89
-        return int(a) + int(b)
-
-    if a is not None and not isinstance(a, (int, float)):
-        raise TypeError("a must be an integer or float")
-    if not isinstance(b, (int, float)):
-        raise TypeError("b must be an integer or float")
+    if ((not isinstance(a, int) and not isinstance(a, float))):
+        raise TypeError("a must be an integer")
+    if ((not isinstance(b, int) and not isinstance(b, float))):
+        raise TypeError("b must be an integer")
+    return (int(a) + int(b))
